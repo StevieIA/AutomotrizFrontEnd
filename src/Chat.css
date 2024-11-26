@@ -1,0 +1,23 @@
+/* Chat.css */
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 85vh; /* Puedes ajustar este valor según tus necesidades */
+  }
+  
+  .chat {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .entrada {
+    display: flex;
+    padding: 10px;
+  }
+  
+  .entrada .MuiTextField-root {
+    flex: 1;
+  }
+  
