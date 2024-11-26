@@ -7,13 +7,12 @@ import { deepOrange, deepPurple } from '@mui/material/colors';
 
 function Message({ de, texto, hora }) {
   const htmlSinSanear = marked.parse(texto);
-
-  // Configurar DOMPurify si es necesario
-  const htmlSeguro = DOMPurify.sanitize(htmlSinSanear, {
-    // Puedes agregar configuraciones adicionales aquí
-  });
+  const htmlSeguro = DOMPurify.sanitize(htmlSinSanear);
 
   const isUser = de === 'usuario';
+
+  // Verificar si 'hora' está definida
+  const horaFormateada = hora ? new Date(hora).toLocaleTimeString() : '';
 
   return (
     <div className={`mensaje ${de}`}>
@@ -26,9 +25,12 @@ function Message({ de, texto, hora }) {
           component="div"
           dangerouslySetInnerHTML={{ __html: htmlSeguro }}
         ></Typography>
-        <Typography variant="caption" color="textSecondary">
-          {hora.toLocaleTimeString()}
-        </Typography>
+        {/* Mostrar la hora si está disponible */}
+        {horaFormateada && (
+          <Typography variant="caption" color="textSecondary">
+            {horaFormateada}
+          </Typography>
+        )}
       </div>
       {isUser && (
         <Avatar sx={{ bgcolor: deepOrange[500] }}>U</Avatar>

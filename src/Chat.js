@@ -14,15 +14,23 @@ function Chat() {
   useEffect(() => {
     const cargarHistorial = async () => {
       try {
-        const response = await axios.get('https://automotriz-production.up.railway.app/mensajes');
-        setMensajes(response.data);
+        const response = await axios.get(`${backendURL}/mensajes`);
+        console.log('Mensajes recibidos del backend:', response.data);
+  
+        if (Array.isArray(response.data)) {
+          setMensajes(response.data);
+        } else {
+          console.error('La respuesta no es un arreglo:', response.data);
+          setMensajes([]);
+        }
       } catch (error) {
         console.error('Error al cargar el historial:', error);
+        setMensajes([]);
       }
     };
     cargarHistorial();
   }, []);
-
+  
   useEffect(() => {
     if (chatRef.current) {
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
