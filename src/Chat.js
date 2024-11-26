@@ -14,7 +14,7 @@ function Chat() {
   useEffect(() => {
     const cargarHistorial = async () => {
       try {
-        const response = await axios.get('/mensajes');
+        const response = await axios.get('https://automotriz-production.up.railway.app/mensajes');
         setMensajes(response.data);
       } catch (error) {
         console.error('Error al cargar el historial:', error);
