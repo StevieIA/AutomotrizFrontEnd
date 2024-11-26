@@ -14,7 +14,7 @@ function Chat() {
   useEffect(() => {
     const cargarHistorial = async () => {
       try {
-        const response = await axios.get(`${backendURL}/mensajes`);
+        const response = await axios.get(`https://automotriz-production.up.railway.app/mensajes`);
         console.log('Mensajes recibidos del backend:', response.data);
   
         if (Array.isArray(response.data)) {
