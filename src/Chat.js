@@ -43,7 +43,7 @@ function Chat() {
     setEscribiendo(true);
 
     try {
-      const response = await axios.post('/enviar-mensaje', { mensaje });
+      const response = await axios.post('https://automotriz-production.up.railway.app/enviar-mensaje', { mensaje });
       const nuevoMensajeBot = {
         de: 'bot',
         texto: response.data.respuesta,

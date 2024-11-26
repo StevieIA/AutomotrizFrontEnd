@@ -2,7 +2,6 @@
   "name": "chat-webhook-react",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://automotriz-production.up.railway.app/",
   "dependencies": {
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
@@ -21,10 +20,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "start": "node server.js",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
